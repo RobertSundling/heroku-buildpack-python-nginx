@@ -22,14 +22,14 @@ if [ -f .heroku/nginx-version ]; then
   fi
 fi
 
-# fail hard
-set -o pipefail
-# fail harder
-set -eux
-
 if [ ! "$SKIP_INSTALL" ]; then
 	echo "-----> Building Nginx ${dep_version}..."
 
+	# fail hard
+	set -o pipefail
+	# fail harder
+	set -eux
+	
 	curl -L ${dep_url} | tar xz
 	curl -L http://zlib.net/zlib-1.2.8.tar.gz | tar xz -C ${dep_dirname}
 	curl -L http://sourceforge.net/projects/pcre/files/pcre/8.34/pcre-8.34.tar.gz | tar xz -C ${dep_dirname}
