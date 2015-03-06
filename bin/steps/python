@@ -1,6 +1,5 @@
 set +e
 PYTHON_VERSION=$(cat runtime.txt)
-SKIP_INSTALL=0
 
 # Install Python.
 if [ -f .heroku/python-version ]; then
@@ -18,8 +17,7 @@ if [ ! $STACK = $CACHED_PYTHON_STACK ]; then
   bpwatch start uninstall_python
     puts-step "Stack changed, re-installing runtime"
     rm -fr .heroku/python .heroku/python-stack .heroku/vendor
-    #unset SKIP_INSTALL
-    SKIP_INSTALL=0
+    unset SKIP_INSTALL
   bpwatch stop uninstall_python
 fi
 

@@ -149,11 +149,11 @@ set -e
 
 mkdir -p $(dirname $PROFILE_PATH)
 
-# Install Nginx
-source $BIN_DIR/steps/nginx /app/.heroku/nginx/
-
 # Install Python.
 source $BIN_DIR/steps/python
+
+# Install Nginx 
+source $BIN_DIR/steps/nginx /app/.heroku/nginx/
 
 # Sanity check for setuptools/distribute.
 source $BIN_DIR/steps/setuptools
