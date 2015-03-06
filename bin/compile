@@ -4,6 +4,9 @@
 #
 #     $ bin/compile <build-dir> <cache-dir> <env-path>
 
+COMMIT_COUNT=`cat ../commit_count.txt`
+echo "-----> Building Python/Nginx (commit $COMMIT_COUNT)..."
+
 # Fail fast and fail hard.
 set -eo pipefail
 
